@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;700;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+}
+
+.logo-font { 
+    font-family: 'Playfair Display', serif; 
+}
+
+/* Efeito suave de transição para os filtros */
+.product-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#catalogo {
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    #catalogo {
+        height: auto; /* Em celulares, conteúdo costuma ser maior que a tela */
+        padding-top: 100px;
+    }
+}
+
+/* Estilização da barra de rolagem para combinar com o site */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #C5A044;
+}
