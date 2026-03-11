@@ -38,3 +38,21 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #C5A044;
 }
+
+.owl-theme .owl-dots .owl-dot span {
+    background: #333 !important;
+    width: 12px;
+    height: 12px;
+    transition: all 0.3s;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, 
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #C5A044 !important;
+    transform: scale(1.2);
+}
+
+.owl-carousel .item img {
+    height: 450px;
+    object-fit: cover;
+}
