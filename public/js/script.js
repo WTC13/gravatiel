@@ -41,3 +41,21 @@ tailwind.config = {
         }
     }
 }
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 30,
+        center: true, // Item central em destaque
+        nav: false,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        smartSpeed: 800,
+        responsive:{
+            0:{ items: 1.2 }, // Mostra um pedaço do próximo item
+            600:{ items: 2 },
+            1000:{ items: 3 }
+        }
+    });
+});
