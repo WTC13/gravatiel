@@ -56,3 +56,23 @@ body {
     height: 450px;
     object-fit: cover;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ajuste específico para o carrossel de produtos */
+#product-grid .item {
+    padding: 10px;
+}
+
+/* Ajuste das imagens do catálogo no Owl */
+#product-grid img {
+    height: auto; /* Deixa o aspect ratio do Tailwind controlar */
+    width: 100%;
+}

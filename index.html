@@ -92,29 +92,38 @@
                 <h2 class="text-4xl font-bold mb-2 uppercase tracking-tight">Nosso Catálogo</h2>
                 <div class="h-1 w-24 bg-brandGold"></div>
             </div>
-            <div class="flex gap-2">
-                <button onclick="filterItems('todos')" class="filter-btn px-6 py-2 rounded-full border border-brandBlack bg-brandBlack text-white text-sm uppercase font-bold">Todos</button>
-                <button onclick="filterItems('slim')" class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-brandGold transition text-sm uppercase">Slim</button>
-                <button onclick="filterItems('borboleta')" class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-brandGold transition text-sm uppercase">Borboleta</button>
+            
+            <div class="topics flex gap-2 overflow-x-auto pb-4 md:pb-0 w-full md:w-auto snap-x no-scrollbar">
+                <button onclick="filterItems('todos')" class="filter-btn snap-start whitespace-nowrap px-6 py-2 rounded-full border border-brandBlack bg-brandBlack text-white text-sm uppercase font-bold transition-all">Todos</button>
+                <button onclick="filterItems('gravatas')" class="filter-btn snap-start whitespace-nowrap px-6 py-2 rounded-full border border-gray-300 hover:border-brandGold transition text-sm uppercase">Gravatas</button>
+                <button onclick="filterItems('broches')" class="filter-btn snap-start whitespace-nowrap px-6 py-2 rounded-full border border-gray-300 hover:border-brandGold transition text-sm uppercase">Broches</button>
+                <button onclick="filterItems('leques')" class="filter-btn snap-start whitespace-nowrap px-6 py-2 rounded-full border border-gray-300 hover:border-brandGold transition text-sm uppercase">Leques</button>
+                <button onclick="filterItems('camisa social')" class="filter-btn snap-start whitespace-nowrap px-6 py-2 rounded-full border border-gray-300 hover:border-brandGold transition text-sm uppercase">Camisa Social</button>
             </div>
         </div>
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div class="product-card group" data-category="slim">
-                <div class="relative overflow-hidden rounded-sm bg-gray-200 aspect-[3/4]">
-                    <img src="https://images.unsplash.com/photo-1598033129183-c4f50c717658?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                </div>
-                <h3 class="font-bold text-xl mt-4 uppercase tracking-tighter">Seda Gold Line</h3>
-                <p class="mt-2 font-black text-brandGold text-lg tracking-widest">R$ 149,90</p>
-            </div>
-            <div class="product-card group" data-category="borboleta">
-                <div class="relative overflow-hidden rounded-sm bg-gray-200 aspect-[3/4]">
-                    <img src="https://images.unsplash.com/photo-1505022610485-0249ba5b3675?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                </div>
-                <h3 class="font-bold text-xl mt-4 uppercase tracking-tighter">Black Tie Lux</h3>
-                <p class="mt-2 font-black text-brandGold text-lg tracking-widest">R$ 180,00</p>
-            </div>
-        </div>
+
+        <div id="product-grid" class="owl-carousel owl-theme"></div>
+
+        <small class="flex mt-5"><a href="./views/catalog.html" style="text-decoration: none;">Ver mais</a></small>
     </section>
+
+
+    <script id="product-template" type="text/x-handlebars-template">
+        {{#each products}}
+        <div class="product-card group item" data-category="{{category}}">
+            <div class="relative overflow-hidden rounded-sm bg-gray-200 aspect-[3/4]">
+                <img src="{{image}}" alt="{{name}}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
+                <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="w-full bg-brandGold text-black text-xs font-bold py-2 uppercase tracking-tighter">Ver Detalhes</button>
+                </div>
+            </div>
+            <h3 class="font-bold text-xl mt-4 uppercase tracking-tighter">{{name}}</h3>
+            <small class="font-bold tracking-tighter text-gray-400">a partir de</small>
+            <p class="font-black text-brandGold text-lg tracking-widest">R$ {{price}}</p>
+        </div>
+        {{/each}}
+    </script>
+
     <footer id="contato" class="bg-brandBlack text-white border-t border-brandGold py-16">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-16">
             <div class="flex flex-col items-center md:items-start">
@@ -142,6 +151,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./public/js/script.js"></script>
 </body>
